@@ -1,1 +1,1 @@
-readme root of directory project
+project hello world with python
