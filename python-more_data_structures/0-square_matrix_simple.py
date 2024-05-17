@@ -3,6 +3,6 @@
 def square_matrix_simple(matrix=[]):
     new_mat = []
     for row in matrix:
-        new_row = list(map(lambda x x ** 1, row))
+        new_row = list(map(lambda x: x ** 2, row))
         new_mat.append(new_row)
     return new_mat
