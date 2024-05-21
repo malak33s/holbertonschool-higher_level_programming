@@ -1,0 +1,17 @@
+>>> add_integer(1, 2)
+3
+>>> add_integer(100, -2)
+98
+>>> add_integer(2)
+100
+>>> add_integer(100.3, -2)
+98
+>>> add_integer(4, "School")
+traceback (most recent call last):
+    ...
+typeError: b must be an integer
+>>> add_integer(None)
+traceback (most recent call last):
+    ...
+typeError: a must be an integer
+
