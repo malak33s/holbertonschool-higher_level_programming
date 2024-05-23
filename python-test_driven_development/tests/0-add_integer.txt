@@ -1,17 +1,59 @@
->>> add_integer(1, 2)
-3
->>> add_integer(100, -2)
-98
->>> add_integer(2)
-100
->>> add_integer(100.3, -2)
-98
->>> add_integer(4, "School")
-traceback (most recent call last):
-    ...
-typeError: b must be an integer
->>> add_integer(None)
-traceback (most recent call last):
-    ...
-typeError: a must be an integer
+Doctest for 0-add_integer.py
 
+The function return of a and b after addition
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+============
+Test failure
+============
+
+>>> add_integer("two", 4)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer()
+Traceback (most recent call last):
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer([3, 2, 1], 4)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(10, "maison")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(6, float('inf'))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float("nan"))
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(rien)
+Traceback (most recent call last):
+NameError: name 'rien' is not defined
+
+=======================
+Test for output success
+=======================
+
+>>> add_integer(100, -10)
+90
+
+>>> add_integer(20)
+118
+
+>>> add_integer(2, 4)
+6
+
+>>> add_integer(9.5, 6.5)
+15
+
+>>> add_integer(50, 50)
+100
+
+>>> add_integer(27, -17)
+10
