@@ -3,8 +3,8 @@ def say_my_name(first_name, last_name=""):
     prints "My name is <first name> <last name>"
 
     args:
-        first_name (str): the first name to be printed
-        last_name (str): the last name to be printed
+        first_name (str): the first name printed
+        last_name (str): the last name printed
 
     Raises:
         TypeError: if first_name or last_name are not strings

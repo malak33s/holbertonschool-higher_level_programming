@@ -1,28 +1,27 @@
-filetest for 3-say_my_name.py
+Doctest for 3-say_my_name.py
 
-function thats print the complete name
+The function print the first name and last name
 
 >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 ================
-Test for success
+Test for correct
 ================
 
->>> say_my_name("test", "reussi")
-My name is test reussi
+>>> say_my_name("malak", "Sarhani")
+My name is malak Sarhani
 
->>> say_my_name("test", "reussii")
-My name is test reussii
+>>> say_my_name("nour", "chaouch")
+My name is nour chaouch
 
->>> say_my_name("test", "reussiii")
-My name is test reussiii
-
+>>> say_my_name("houss", "tiab")
+My name is houss tiab
 
 =============
 Test for fail
 =============
 
->>> say_my_name("test", 0)
+>>> say_my_name("malak", 20)
 Traceback (most recent call last):
 TypeError: last_name must be a string
 
@@ -30,6 +29,6 @@ TypeError: last_name must be a string
 Traceback (most recent call last):
 TypeError: say_my_name() missing 1 required positional argument: 'first_name'
 
->>> say_my_name(0, "reussii")
+>>> say_my_name(25, "chaouch")
 Traceback (most recent call last):
 TypeError: first_name must be a string
