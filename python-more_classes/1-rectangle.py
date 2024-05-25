@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""create a class Rectangle"""
-
+""" method for a class Rectangle with private attributes width and height"""
 
 class Rectangle:
+    """A rectangle"""
 
     def __init__(self, width=0, height=0):
+        self.__width = width
+        self.__height = height
         self.width = width
         self.height = height
 
@@ -31,3 +33,4 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
