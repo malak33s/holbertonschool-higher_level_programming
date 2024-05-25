@@ -1,0 +1,37 @@
+Doctest for 5-text_indentation.py
+
+function that print text with 2 new lines after each of these characters: ., ? and :
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+check good
+
+>>> text_indentation("laflamme?")
+laflamme?
+<BLANKLINE>
+
+>>> text_indentation("    olympique.")
+olympique.
+<BLANKLINE>
+
+>>> text_indentation("olympique.    ")
+olympique.
+<BLANKLINE>
+
+>>> text_indentation("    hol ber.    thon flamme olymp.   ")
+flamme olymp.
+<BLANKLINE>
+thon flamme olymp.
+<BLANKLINE>
+
+
+check failure
+
+>>> text_indentation(77)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
