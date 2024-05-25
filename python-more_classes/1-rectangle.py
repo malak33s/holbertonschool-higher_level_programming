@@ -2,13 +2,12 @@
 """ method for a class Rectangle with private attributes width and height"""
 
 class Rectangle:
-    """A rectangle"""
 
     def __init__(self, width=0, height=0):
-        self.__width = width
         self.__height = height
-        self.width = width
+        self.__width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
