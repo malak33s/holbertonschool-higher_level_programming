@@ -1,25 +1,20 @@
 #!/usr/bin/python3
 import sys
-import json
-# import the functions from the previous tasks
+import os
+
+# Import the required functions from the modules
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-def main():
-    """
-    add all command-line args to a list and save them to a JSON file
-    if the file do not exist its will be created.
-    """
-    filename = "add_item.json"
+# Define the filename for the JSON file
+filename = "add_item.json"
 
-    try:
-        items = load_from_json_file(filename)
-    except (FileNotFoundError, json.JSONDecodeError):
-        items = []
+if os.path.exists(filename):
+    my_list = load_from_json_file(filename)
+else:
+    my_list = []
 
-    items.extend(sys.argv[1:])
-    save_to_json_file(items, filename)
+my_list.extend(sys.argv[1:])
 
-if __name__ == "__main__":
-    main()
+save_to_json_file(my_list, filename)
 
