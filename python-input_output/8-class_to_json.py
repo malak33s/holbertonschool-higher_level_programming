@@ -1,13 +1,4 @@
 def class_to_json(obj):
-    """
-    return description of dict with a structure data for
-    the sérialisation JSO a object.
-    
-    argu:
-        obj: instance of a classe.
-        
-    return:
-        dict: représentatio obj.
-    """
+    """ return the dictionary representation of an object """
     return obj.__dict__
 
