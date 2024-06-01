@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import json
 
 def serialize_and_save_to_file(data, filename):
