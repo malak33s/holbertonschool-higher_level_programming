@@ -1,23 +1,28 @@
 #!/usr/bin/python3
-"""Define  CSV serialization module"""
+"""Define serialization and deserialization CSV"""
+
 import csv
 import json
 
 
 def convert_csv_to_json(csv_filename):
-    """Convert CSV filename to json"""
+    """Convert CSV to JSON
 
+    Args:
+        filename: name of the file
+    """
     try:
-        data_list = []
-        with open(csv_filename, 'r', encoding="utf-8") as csv_file:
-            read = csv.DictReader(csv_file)
-            for row in read:
-                data_list.append(row)
-
-        with open("data.json", 'w', enconding="utf-8") as json_file:
-            json.dump(date_list, json_file)
-
-        return True 
-
+        dict_list = []
+        
+        with open(csv_filename, "r") as f:
+            reader = csv.DictReader(f)
+            for cpt in reader:
+                dict_list.append(cpt)
+            
+        with open("data.json", "w") as f:
+            json.dump(dict_list, f)
+        
+        return True
+    
     except FileNotFoundError:
         return False
