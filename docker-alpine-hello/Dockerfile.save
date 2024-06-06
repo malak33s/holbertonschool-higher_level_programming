@@ -1,0 +1,4 @@
+#image Alpine from Docker
+FROM alpine:latest
+
+#Define a command for print "Hello, World!" wh
