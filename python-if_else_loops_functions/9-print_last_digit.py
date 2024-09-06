@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-def uppercase(str):
-    for ch in str:
-        temp = ch
-        if ord(ch) >= 97 and ord(ch) <= 122:
-            temp = chr(ord(ch) - (ord('a') - ord('A')))
-        print("{}".format(temp), end="")
-    print()
+def print_last_digit(n):
+    lastDigit = abs(n) % 10
+    print(lastDigit, end="")
+    return lastDigit
