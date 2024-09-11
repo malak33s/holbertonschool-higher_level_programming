@@ -2,4 +2,4 @@
 def print_list_integer(my_list=[]):
     """Function that prints all integers in a list."""
     for number in my_list:
-        print("{}".format(number))
+        print("{:d}".format(number))  # {:d} spécifie que number est un entier
