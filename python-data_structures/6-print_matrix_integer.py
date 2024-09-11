@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
-
+    """Function that prints a matrix of integers."""
     for row in matrix:
-        print(" ".join("{}".format(element) for element in row))
+        print(" ".join("{:d}".format(element) for element in row))
