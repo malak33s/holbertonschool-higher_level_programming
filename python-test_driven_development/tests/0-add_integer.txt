@@ -1,0 +1,59 @@
+Doctest for 0-add_integer.py
+
+The function return the addition of 'a' and 'b'
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+*******
+if good
+*******
+
+>>> add_integer(2, 4)
+6
+
+>>> add_integer(100, -10)
+90
+
+>>> add_integer(9.5, 6.5)
+15
+
+>>> add_integer(50, 50)
+100
+
+>>> add_integer(27, -17)
+10
+
+>>> add_integer(20)
+118
+
+*********
+if false
+*********
+
+>>> add_integer("two", 4)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(10, "maison")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer([3, 2, 1], 4)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer()
+Traceback (most recent call last):
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer(rien)
+Traceback (most recent call last):
+NameError: name 'rien' is not defined
+
+>>> add_integer(6, float('inf'))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float("nan"))
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
