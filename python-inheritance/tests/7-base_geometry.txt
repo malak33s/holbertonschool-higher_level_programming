@@ -1,0 +1,26 @@
+Test BaseGeometry.area() method:
+
+    >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+Test BaseGeometry.integer_validator() method:
+
+    >>> bg.integer_validator("my_int", 12)
+
+    >>> bg.integer_validator("width", -1)
+    Traceback (most recent call last):
+        ...
+    ValueError: width must be greater than 0
+
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+    >>> bg.integer_validator("distance", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: distance must be greater than 0
