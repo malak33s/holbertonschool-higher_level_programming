@@ -11,3 +11,4 @@ class CountedIterator:
 
     def get_count(self):
         return self.count  # Return the count of items iterated
+    
