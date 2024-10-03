@@ -6,6 +6,7 @@ Defines a Square class that inherits from Rectangle
 
 Rectangle = __import__('9-rectangle').Rectangle
 
+
 class Square(Rectangle):
     """A class to define a square, inherits from Rectangle"""
 
@@ -13,7 +14,7 @@ class Square(Rectangle):
         """Initialize square with size, validated by integer_validator"""
         self.integer_validator("size", size)
         self.__size = size
-        # Call the parent class (Rectangle) with width and height being the same
+        # the parent class with width and height being the same
         super().__init__(size, size)
 
     def area(self):
