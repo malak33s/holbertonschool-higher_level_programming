@@ -1,59 +1,49 @@
+#!/usr/bin/python3
+"""
+ serialize and deserialize custom Python objects using the pickle module.
+"""
 import pickle
 
 
 class CustomObject:
     """
-    Classe personnalisée représentant un objet avec des attributs nom, âge
-    et étudiant.
+    A class that represents an object with name, age, and is_student attributes
     """
 
     def __init__(self, name, age, is_student):
-        """
-        Constructeur de la classe CustomObject.
-
-        :param name: Nom de l'objet (str)
-        :param age: Âge de l'objet (int)
-        :param is_student: Statut étudiant de l'objet (bool)
-        """
+        """Initializes the object with name, age, and is_student attributes."""
         self.name = name
         self.age = age
         self.is_student = is_student
 
     def display(self):
-        """
-        Affiche les attributs de l'objet dans un format lisible.
-        """
+        """Displays the attributes of the object."""
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
         print(f"Is Student: {self.is_student}")
 
     def serialize(self, filename):
         """
-        Sérialise l'instance actuelle de l'objet et l'enregistre dans le
-        fichier spécifié.
-
-        :param filename: Nom du fichier pour enregistrer l'objet sérialisé
-        :return: None
+        Serializes the current instance and saves it to the specified filename
         """
         try:
-            with open(filename, 'wb') as file:
-                # Enregistrer l'objet sérialisé dans le fichier
-                pickle.dump(self, file)
+            # wb = write binary (écriture binaire)
+            with open(filename, "wb") as file:
+                pickle.dump(self, file)  # Serialize the object
         except Exception as e:
-            print(f"Erreur lors de la sérialisation : {e}")
+            print(f"Error serializing object: {e}")
+            return None
 
     @classmethod
     def deserialize(cls, filename):
         """
-        Désérialise un fichier et retourne une instance de CustomObject.
-
-        :param filename: Nom du fichier à désérialiser
-        :return: Instance de CustomObject ou None en cas d'erreur
+        Loads, returns an instance of CustomObject from the specified filename
         """
         try:
-            with open(filename, 'rb') as file:
-                # Charger et retourner l'objet désérialisé
-                return pickle.load(file)
-        except (FileNotFoundError, pickle.UnpicklingError) as e:
-            print(f"Erreur lors de la désérialisation : {e}")
+            # rb = read binary (lecture binaire)
+            with open(filename, "rb") as file:
+                loaded_self = pickle.load(file)  # Deserialize the object
+                return loaded_self  # Return the deserialized object
+        except Exception as e:
+            print(f"Error deserializing object: {e}")
             return None
