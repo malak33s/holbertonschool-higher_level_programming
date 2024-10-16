@@ -63,4 +63,3 @@ if __name__ == "__main__":
     with http.server.HTTPServer(("", PORT), HttpRequestHandler) as httpd:
         print(f"Serveur en cours d'exécution sur le port {PORT}...")
         httpd.serve_forever()
-
