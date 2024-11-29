@@ -1,23 +1,37 @@
 #!/usr/bin/python3
 """
-Affiche tous les états de la table `states` de la base `hbtn_0e_0_usa`.
+Liste tous les états de la base de donnés hbtn_0e_0_usa
 """
 
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    user = sys.argv[1]
+    # Récupérer les arguments
+    username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    db = MySQLdb.connect(host="localhost", user=user, passwd=password, db=database)
-    cursor = db.cursor()
+    # Se connecter à la base de données MySQL
+    dataB = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
+
+    # Crée un curseur pour exécuter des commandes SQL
+    cursor = dataB.cursor()
+
+    # Exécuter la requête SQL pour récupérer tous les états triés par ID
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
+
+    # Récupérer tous les résultats de la requête
     states = cursor.fetchall()
 
     for state in states:
         print(state)
 
     cursor.close()
-    db.close()
+    dataB.close()

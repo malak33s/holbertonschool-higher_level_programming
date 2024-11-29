@@ -1,0 +1,31 @@
+import requests
+import csv
+
+# Fonction pour récupérer et afficher les posts
+def fetch_and_print_posts():
+    r = requests.get("https://jsonplaceholder.typicode.com/posts")
+    print(f"Status Code: {r.status_code}")  # Affiche le code de statut
+    
+    if r.status_code == 200:  # Vérifie si la requête a réussi
+        posts = r.json()  # Parse les données JSON
+        for post in posts:
+            print(post['title'])  # Affiche le titre de chaque post
+
+# Fonction pour récupérer et sauvegarder les posts
+def fetch_and_save_posts():
+    r = requests.get("https://jsonplaceholder.typicode.com/posts")
+    
+    if r.status_code == 200:  # Vérifie si la requête a réussi
+        posts = r.json()  # Parse les données JSON
+        
+        # Structure les données en une liste de dictionnaires
+        structured_data = [{'id': post['id'], 'title': post['title'], 'body': post['body']} for post in posts]
+
+        # Écrit les données dans un fichier CSV
+        with open('posts.csv', mode='w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['id', 'title', 'body']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+            writer.writeheader()  # Écrit l'en-tête du CSV
+            writer.writerows(structured_data)  # Écrit les posts
+

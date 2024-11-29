@@ -1,1 +1,1 @@
-Debut du deuxieme repo du second trimestre python
+Reade for the projet
